@@ -7,8 +7,8 @@ const cpuCount = os.cpus().length;
 
 if (cluster.isPrimary) {
   for (let i = 0; i < cpuCount; i++) {
+    cluster.fork();
     cluster.fork()
-    
   }
 } else {
   app.get("/", (req, res) => {
